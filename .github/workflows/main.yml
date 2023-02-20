@@ -1,8 +1,10 @@
 name: Build and deploy Android release
 on:
-  push:
-    tags:
-      - 'android*'
+   pull_request:
+     branches:
+       - develop
+       - alpha 
+       - main
 jobs:
   testFlight-build:
     name: android-beta-build
