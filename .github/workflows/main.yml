@@ -33,7 +33,9 @@ jobs:
 
       - name: Build and Publish Mobile App
         run: |
+          bundle exec fastlane
           fastlane add_plugin firebase_app_distribution  
           fastlane add_plugin load_json     
+          bundle exec fastlane
           cd android && fastlane beta
      
