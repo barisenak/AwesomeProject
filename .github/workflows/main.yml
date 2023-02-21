@@ -33,7 +33,8 @@ jobs:
 
       - name: Build and Publish Mobile App
         run: |
-          sudo apt-get -yqq install libpq-dev
-          gem install bundler
+          fastlane init
+          fastlane add_plugin firebase_app_distribution  
+          fastlane add_plugin load_json     
           cd android && fastlane beta
      
