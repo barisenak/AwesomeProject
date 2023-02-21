@@ -45,6 +45,18 @@ platform :android do
         # build_android_app is a built-in fastlane action.
         release = firebase_app_distribution(
             app: "1:59572268623:android:5c083adc82803ea967443a",
+            service_credentials_file: {
+                "type": "service_account",
+                "project_id": "awesomeproject-f092b",
+                "private_key_id": "eacd8126321a760c2944bd5c2f2356d9bb36a2fd",
+                "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCJnxBiOVKSpZgA\ntOcS+zlbM1ik7fgcayNzLh7+pB9tQwGC0dzo//JNNhJzYSh6aTQ422sRczs0sblS\n0qUWMCYRdfPeAvUJ61exZRtY4YvpDKUGKVeTSBbKEC9axS7KzK+/OJCndDXLWR9m\nWG5ZP5N8PNomqiAKX5hOn8UnjjAhWNH438+0UJwdkMGaKoHZ53xBhBPK5+wGZ2Kt\nP7KytTe+TdnCjeUDZxr28n+fhzY255o9XQTGLO4+RmbGyyysNOioJcLFjdSoqcgS\nT3L1Zy8iFeuHv8gAHk87+8fu3Jiw1F4zxWbkeImwqJUyhKMaWGlY6w0C9t611AAU\nuggjuybNAgMBAAECggEAAJTGIDAPR/TAj1I0PpmGfLrbBzlFCLOwHuKlOVyOkGrN\nxRRnSymXh5lwmwGgRuIOWSYeDeEPcTHF71JZ5Z3W71Bw8vFOwRe4E1TyuF2ddmK6\nCKxghQvzIq/OT2MRR0R1goh13eso9f6emhNKBgD1ebsVDcA+qeSM81oL3lakn+Nr\nS7pubIGrka5Rf44924qsUXXlS7wIBGwws86lnZD2z2o3jyEzJk0xksL302d4rERT\n2bSLL9wb7PjfVMSDAz4r1u+vc7gyXvkAk5ioPwqw6GCH7gg8L21Id7/scDDXN3t2\nzfg9lOnVFjQEk3SmZ/FvIsu1xU9IAi/ee0LpM+uU2QKBgQC9cf068I1BtOLBY1Ul\nguATtq4j14vl7X2m6ia+ghCOVwFPlAWPfGov3HlMA5PFp5lN+S9uN2BtEzKJx6Ej\nQitOR+YyMNXKvN6UuhPVUdGwC/eOR02cY8kdz00J6CDmJcK8E075MFHcElC5Y0c2\nJ5YcKVGTW3OREOtgfyBFAor+iQKBgQC5+Diy4qoTjRdJo4huz0DjrY60ZcJ36u60\nmHRfEGzP52OwexHncshO0OVZMNX/t8ZxPKUEB+8o/BaWy/iFIbczIvFFvfnc5peV\nxLTwecjhxQEsZfz0MNQEwwqbsdXqNVZIOsi1QCPnKxTEeij4xZSrycIdXXaFZ/hs\nlmTWeuI1JQKBgFKufGIL+Oqzgr/6lX/gpeGUul4ERhec1llSGoTNCWLGUFkl9mNQ\nXpvy8rGdYhJC+qLQXcYRvzD7zvPZP9e+ml34/VvsenKYieCJcfyJUCYwouPi9NmL\np4wuHKZ1PF6WHm6tUqtpTmDpUXgH/12AW4CA/Ax/PmoS41fjQ/c6i+VZAoGAPccq\ntqo7i5EkOk88BGuPB9NhA6aGSqXdtFqs1eOz8gDRChBoKzXjOuOEPPPPM0rOflGC\nE+u61CeiLWgG39sKa89gzSVF+s8TbipRXU1noTB7qk8bD9ekpwxP2tbh1BLx3b7B\nbAypoKKcHITkVXf1Ynf8pxqkQ779NL1lNCbQPI0CgYBZtxafgmrDjPcXaSphI6Af\n60jrr2tXkNPMfjDzgY+0eCOiK3Q02LZu43EDf5MIZgZS5vvcF0mmMM1LAOTBrzQB\nBHSzUrFwQMU5G39LF8iKuW1DXxfpF7TcgeQ5oTZHsEWa2DqneHBnYZALsAlUB9yx\nt2P5tRLdZV927x3IK5qm+Q==\n-----END PRIVATE KEY-----\n",
+                "client_email": "firebase-adminsdk-6bbzn@awesomeproject-f092b.iam.gserviceaccount.com",
+                "client_id": "112235521454470738370",
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-6bbzn%40awesomeproject-f092b.iam.gserviceaccount.com"
+},
             testers: "tester1@company.com, tester2@company.com",
             release_notes: "Lots of amazing new features to test out!"
         )
