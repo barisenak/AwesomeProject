@@ -30,13 +30,7 @@ jobs:
       - name: Build Android App Bundle
         run: |
           cd android && ./gradlew bundleRelease --no-daemon
-          
-      - name: Install Fastlane
-        run: |
-          gem install bundler       
-          bundle update
-          gem install fastlane
-          fastlane init
+
       - name: Build and Publish Mobile App
         run: |
           cd android && fastlane beta
