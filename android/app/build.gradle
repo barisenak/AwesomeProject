@@ -259,13 +259,6 @@ android {
     }
 }
 
-plugins {
-  id 'com.android.application'
-
-  // Add the Google services Gradle plugin
-  id 'com.google.gms.google-services'
-
-}
 
 dependencies {
   // Import the Firebase BoM
@@ -340,3 +333,6 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
