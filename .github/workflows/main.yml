@@ -32,6 +32,7 @@ jobs:
           cd android && ./gradlew bundleRelease --no-daemon
 
       - name: Build and Publish Mobile App
+        run: cd android
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
