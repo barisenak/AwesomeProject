@@ -13,27 +13,40 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:android)
+# default_platform(:android)
 
-platform :android do 
-    desc "Release for the Android beta"
-    lane :beta do 
-        increment_version_code('app_project_dir': './andriod/app')
-        gradle(task: 'clean', project_dir: './andriod')
-        gradle(task: 'bundle', bundle_type: 'Release', project_dir: './andriod')
-        supply(track: 'beta', abb: './andriod/app/build/outputs/apk/app-beta-release.apk')
-    end
-    desc "Release for the Android production"
-    lane : release do
-        increment_version_code(app_project_dir: './android/app')
-        increment_version_name(app_project_dir: './android/app', bump_type: 'patch')
-        gradle(task: 'clean', project_dir: './android/')
-        gradle(task: 'bundle', bundle_type: 'Release', project_dir: './andriod', properties: {
-            "android.injected.signing.store.file" => ENV['ANDROID_KEYSTORE_FILE'],
-            "android.injected.signing.store.password" => ENV['ANDROID_KEYSTORE_PASSWORD'],
-            "android.injected.signing.key.alias" => ENV['ANDROID_KEYSTORE_ALIAS'],
-            "android.injected.signing.key.password" => ENV['ANDROID_KEYSTORE_PASSWORD']
-        })
-        supply(track: 'production', aab: './android/app/build/outputs/bundle/release/app_release.aab', release_status: 'draft')
+# platform :android do 
+#     desc "Release for the Android beta"
+#     lane :beta do 
+#         increment_version_code('app_project_dir': './andriod/app')
+#         gradle(task: 'clean', project_dir: './andriod')
+#         gradle(task: 'bundle', bundle_type: 'Release', project_dir: './andriod')
+#         supply(track: 'beta', abb: './andriod/app/build/outputs/apk/app-beta-release.apk')
+#     end
+#     desc "Release for the Android production"
+#     lane : release do
+#         increment_version_code(app_project_dir: './android/app')
+#         increment_version_name(app_project_dir: './android/app', bump_type: 'patch')
+#         gradle(task: 'clean', project_dir: './android/')
+#         gradle(task: 'bundle', bundle_type: 'Release', project_dir: './andriod', properties: {
+#             "android.injected.signing.store.file" => ENV['ANDROID_KEYSTORE_FILE'],
+#             "android.injected.signing.store.password" => ENV['ANDROID_KEYSTORE_PASSWORD'],
+#             "android.injected.signing.key.alias" => ENV['ANDROID_KEYSTORE_ALIAS'],
+#             "android.injected.signing.key.password" => ENV['ANDROID_KEYSTORE_PASSWORD']
+#         })
+#         supply(track: 'production', aab: './android/app/build/outputs/bundle/release/app_release.aab', release_status: 'draft')
+#     end
+# end
+
+platform :android do
+    desc "My awesome app"
+    lane :distribute do
+        build_android_app(...)
+        # build_android_app is a built-in fastlane action.
+        release = firebase_app_distribution(
+            app: "1:123456789:android:abcd1234",
+            testers: "tester1@company.com, tester2@company.com",
+            release_notes: "Lots of amazing new features to test out!"
+        )
     end
 end
