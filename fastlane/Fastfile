@@ -1,0 +1,114 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+# platform :android do 
+#     desc "Release for the Android beta"
+#     lane :beta do 
+#         increment_version_code('app_project_dir': './andriod/app')
+#         gradle(task: 'clean', project_dir: './andriod')
+#         gradle(task: 'bundle', bundle_type: 'Release', project_dir: './andriod')
+#         supply(track: 'beta', abb: './andriod/app/build/outputs/apk/app-beta-release.apk')
+#     end
+#     desc "Release for the Android production"
+#     lane : release do
+#         increment_version_code(app_project_dir: './android/app')
+#         increment_version_name(app_project_dir: './android/app', bump_type: 'patch')
+#         gradle(task: 'clean', project_dir: './android/')
+#         gradle(task: 'bundle', bundle_type: 'Release', project_dir: './andriod', properties: {
+#             "android.injected.signing.store.file" => ENV['ANDROID_KEYSTORE_FILE'],
+#             "android.injected.signing.store.password" => ENV['ANDROID_KEYSTORE_PASSWORD'],
+#             "android.injected.signing.key.alias" => ENV['ANDROID_KEYSTORE_ALIAS'],
+#             "android.injected.signing.key.password" => ENV['ANDROID_KEYSTORE_PASSWORD']
+#         })
+#         supply(track: 'production', aab: './android/app/build/outputs/bundle/release/app_release.aab', release_status: 'draft')
+#     end
+# end
+
+# platform :android do
+#     desc "My awesome app"
+#     lane :distribute do
+#         build_android_app(...)
+#         # build_android_app is a built-in fastlane action.
+#         release = firebase_app_distribution(
+#             app: "1:59572268623:android:5c083adc82803ea967443a",
+#             service_credentials_file: {
+#                 "type": "service_account",
+#                 "project_id": "awesomeproject-f092b",
+#                 "private_key_id": "eacd8126321a760c2944bd5c2f2356d9bb36a2fd",
+#                 "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCJnxBiOVKSpZgA\ntOcS+zlbM1ik7fgcayNzLh7+pB9tQwGC0dzo//JNNhJzYSh6aTQ422sRczs0sblS\n0qUWMCYRdfPeAvUJ61exZRtY4YvpDKUGKVeTSBbKEC9axS7KzK+/OJCndDXLWR9m\nWG5ZP5N8PNomqiAKX5hOn8UnjjAhWNH438+0UJwdkMGaKoHZ53xBhBPK5+wGZ2Kt\nP7KytTe+TdnCjeUDZxr28n+fhzY255o9XQTGLO4+RmbGyyysNOioJcLFjdSoqcgS\nT3L1Zy8iFeuHv8gAHk87+8fu3Jiw1F4zxWbkeImwqJUyhKMaWGlY6w0C9t611AAU\nuggjuybNAgMBAAECggEAAJTGIDAPR/TAj1I0PpmGfLrbBzlFCLOwHuKlOVyOkGrN\nxRRnSymXh5lwmwGgRuIOWSYeDeEPcTHF71JZ5Z3W71Bw8vFOwRe4E1TyuF2ddmK6\nCKxghQvzIq/OT2MRR0R1goh13eso9f6emhNKBgD1ebsVDcA+qeSM81oL3lakn+Nr\nS7pubIGrka5Rf44924qsUXXlS7wIBGwws86lnZD2z2o3jyEzJk0xksL302d4rERT\n2bSLL9wb7PjfVMSDAz4r1u+vc7gyXvkAk5ioPwqw6GCH7gg8L21Id7/scDDXN3t2\nzfg9lOnVFjQEk3SmZ/FvIsu1xU9IAi/ee0LpM+uU2QKBgQC9cf068I1BtOLBY1Ul\nguATtq4j14vl7X2m6ia+ghCOVwFPlAWPfGov3HlMA5PFp5lN+S9uN2BtEzKJx6Ej\nQitOR+YyMNXKvN6UuhPVUdGwC/eOR02cY8kdz00J6CDmJcK8E075MFHcElC5Y0c2\nJ5YcKVGTW3OREOtgfyBFAor+iQKBgQC5+Diy4qoTjRdJo4huz0DjrY60ZcJ36u60\nmHRfEGzP52OwexHncshO0OVZMNX/t8ZxPKUEB+8o/BaWy/iFIbczIvFFvfnc5peV\nxLTwecjhxQEsZfz0MNQEwwqbsdXqNVZIOsi1QCPnKxTEeij4xZSrycIdXXaFZ/hs\nlmTWeuI1JQKBgFKufGIL+Oqzgr/6lX/gpeGUul4ERhec1llSGoTNCWLGUFkl9mNQ\nXpvy8rGdYhJC+qLQXcYRvzD7zvPZP9e+ml34/VvsenKYieCJcfyJUCYwouPi9NmL\np4wuHKZ1PF6WHm6tUqtpTmDpUXgH/12AW4CA/Ax/PmoS41fjQ/c6i+VZAoGAPccq\ntqo7i5EkOk88BGuPB9NhA6aGSqXdtFqs1eOz8gDRChBoKzXjOuOEPPPPM0rOflGC\nE+u61CeiLWgG39sKa89gzSVF+s8TbipRXU1noTB7qk8bD9ekpwxP2tbh1BLx3b7B\nbAypoKKcHITkVXf1Ynf8pxqkQ779NL1lNCbQPI0CgYBZtxafgmrDjPcXaSphI6Af\n60jrr2tXkNPMfjDzgY+0eCOiK3Q02LZu43EDf5MIZgZS5vvcF0mmMM1LAOTBrzQB\nBHSzUrFwQMU5G39LF8iKuW1DXxfpF7TcgeQ5oTZHsEWa2DqneHBnYZALsAlUB9yx\nt2P5tRLdZV927x3IK5qm+Q==\n-----END PRIVATE KEY-----\n",
+#                 "client_email": "firebase-adminsdk-6bbzn@awesomeproject-f092b.iam.gserviceaccount.com",
+#                 "client_id": "112235521454470738370",
+#                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+#                 "token_uri": "https://oauth2.googleapis.com/token",
+#                 "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+#                 "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-6bbzn%40awesomeproject-f092b.iam.gserviceaccount.com"
+# },
+#             testers: "tester1@company.com, tester2@company.com",
+#             release_notes: "Lots of amazing new features to test out!"
+#         )
+#     end
+# end
+
+default_platform(:android)
+
+platform :android do
+
+  before_all do
+    ENV["FIREBASE_LOGIN_CREDENTIALS"] = "fastlane/firebase_login_credentials.json"
+    ENV["FIREBASE_APP_ID"] = "1:59572268623:android:5c083adc82803ea967443a"
+  end
+
+   ######## FIREBASE DISTRIBUTION  ########
+  desc "Submit a new Google Test Build to Firebase App Distribution"
+    lane :beta do
+        gradle(task: "build", project_dir: './android')
+
+      # find apk path
+     output_path = "./android/app/build/outputs/apk/debug/"
+     output_json_path = output_path + "output-metadata.json"
+     build_output = load_json(json_path: output_json_path)
+     elements = build_output["elements"][0]
+     apk_path = output_path + elements["outputFile"]
+
+     release_note_information = " BRANCH => #{git_branch} - developer: #{last_git_commit[:author]}"
+     release_note = "#{release_note_information}"
+
+     firebase_app_distribution(
+           app: ENV["FIREBASE_APP_ID"],
+           firebase_cli_token: "1//0ck6kOYc48VlACgYIARAAGAwSNwF-L9IrpZBKfo9P71dyU_CMzWCdTL8KxV_yjdsmEfebSUvuZGtASXFY3wq88EFrbkQO3-qnp4Y",
+           android_artifact_path: apk_path,
+           android_artifact_type: "APK",
+           release_notes: "#{release_note}",
+           testers: "awesomeproject@awesomeproject-378511.iam.gserviceaccount.com",
+           service_credentials_file: ENV["FIREBASE_LOGIN_CREDENTIALS"],
+           debug: true
+     )
+     # fastlane beta r:"First Alpha Release"
+  end
+
+end
+
+# desc "Submit a new Beta Build to Firebase App Distribution"
+# lane :beta do
+#   gradle(task: "build")
+
+#  firebase_app_distribution(
+#      app: "1:59572268623:android:5c083adc82803ea967443a",
+#      groups: "group-one",
+#      release_notes: "Lots of new avatars to try out!"
+#  )
+# end
