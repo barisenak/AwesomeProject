@@ -75,10 +75,10 @@ platform :android do
    ######## FIREBASE DISTRIBUTION  ########
   desc "Submit a new Google Test Build to Firebase App Distribution"
     lane :beta do
-        gradle(task: "build")
+        gradle(task: "build", project_dir: './android')
 
       # find apk path
-     output_path = "./app/build/outputs/apk/debug/"
+     output_path = "./android/app/build/outputs/apk/debug/"
      output_json_path = output_path + "output-metadata.json"
      build_output = load_json(json_path: output_json_path)
      elements = build_output["elements"][0]
@@ -90,10 +90,12 @@ platform :android do
      firebase_app_distribution(
            app: ENV["FIREBASE_APP_ID"],
            firebase_cli_token: "1//0ck6kOYc48VlACgYIARAAGAwSNwF-L9IrpZBKfo9P71dyU_CMzWCdTL8KxV_yjdsmEfebSUvuZGtASXFY3wq88EFrbkQO3-qnp4Y",
-           apk_path: apk_path,
+           android_artifact_path: apk_path,
+           android_artifact_type: "APK",
            release_notes: "#{release_note}",
-           groups_file: "fastlane/groups.txt",
-           service_credentials_file: ENV["FIREBASE_LOGIN_CREDENTIALS"]
+           testers: "awesomeproject@awesomeproject-378511.iam.gserviceaccount.com",
+           service_credentials_file: ENV["FIREBASE_LOGIN_CREDENTIALS"],
+           debug: true
      )
      # fastlane beta r:"First Alpha Release"
   end
