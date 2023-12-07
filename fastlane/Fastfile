@@ -37,7 +37,7 @@ platform :android do
         gradle(task: "build", project_dir: './android')
 
       # find apk path
-     output_path = "./android/app/build/outputs/apk/debug/"
+     output_path = "./android/app/build/outputs/apk/release/"
      output_json_path = output_path + "output-metadata.json"
      build_output = load_json(json_path: output_json_path)
      elements = build_output["elements"][0]
