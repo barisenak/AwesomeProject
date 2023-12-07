@@ -36,13 +36,6 @@ jobs:
       - name: Build Android App Bundle
         run: |
           cd android && ./gradlew bundleRelease --no-daemon
-          
-      - name: Create Firebase Service Credentials file
-        run: |
-          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
-          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
-        env:
-          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_LOGIN_CREDENTIALS }}
 
       - name: Deploy Android Beta to App Distribution via Fastlane
         env: 
