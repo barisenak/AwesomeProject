@@ -39,4 +39,8 @@ jobs:
 
       - name: Deploy Android Beta to App Distribution via Fastlane
         run: bundle exec fastlane android beta
+        env: 
+             FIREBASE_LOGIN_CREDENTIALS: ${{ secrets.FIREBASE_LOGIN_CREDENTIALS }}
+             FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+             FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
