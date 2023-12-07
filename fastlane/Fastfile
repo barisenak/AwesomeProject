@@ -25,6 +25,15 @@ platform :android do
 
   desc "Submit a new Google Test Build to Firebase App Distribution"
     lane :beta do
+        increment_version_code(
+        )
+        value = get_version_name(
+          ext_constant_name: "versionName"
+        )
+        increment_version_name(
+          gradle_file_path: './android/app/build.gradle'
+        )
+
         gradle(task: "build", project_dir: './android')
 
       # find apk path
@@ -47,7 +56,7 @@ platform :android do
            service_credentials_file: ENV["FIREBASE_LOGIN_CREDENTIALS"],
            debug: true
      )
-  end
+    end
 
 end
 
